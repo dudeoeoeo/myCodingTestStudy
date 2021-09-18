@@ -3,6 +3,7 @@ package level1;
 import java.util.*;
 
 public class MockTest {
+
     class Students1 {
         int idx;
         int ans;
@@ -11,6 +12,7 @@ public class MockTest {
             this.ans = ans;
         }
     }
+
     public int[] solution(int[] answers) {
 
         int [] st_ans = new int[3];
