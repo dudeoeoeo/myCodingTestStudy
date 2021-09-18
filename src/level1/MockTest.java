@@ -40,10 +40,8 @@ public class MockTest {
         List<Integer> list = new ArrayList<>();
 
         for(int i = 0; i < st_ans.length; i++) {
-
             if(st_ans[i] >= max)
                 list.add(i+1);
-
         }
 
         int [] ans = new int[list.size()];
