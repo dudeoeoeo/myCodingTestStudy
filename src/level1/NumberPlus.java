@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.OptionalInt;
 
 public class NumberPlus {
+
     public int solution(int[] numbers) {
         return 45 - sumNum(numbers);
     }
