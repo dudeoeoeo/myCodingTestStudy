@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Level2 {
+
     class Tuple {
         int cnt;
         int num;
