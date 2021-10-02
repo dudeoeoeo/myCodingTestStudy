@@ -16,8 +16,6 @@ public class Weekly7 {
 
         while (e_idx < enter.length || l_idx < leave.length) {
 
-            //System.out.printf("eidx: %d, l_idx: %d, nextEnter: %d, nextLeave: %d \n", e_idx, l_idx, nextEnter, nextLeave);
-            //System.out.println("queue: "+queue.toString());
             if(e_idx < enter.length)
                 nextEnter = enter[e_idx];
             nextLeave = leave[l_idx];
