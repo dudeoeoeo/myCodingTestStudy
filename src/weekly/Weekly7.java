@@ -29,7 +29,6 @@ public class Weekly7 {
                 queue.offer(nextEnter); // 처음 방에 입장한 사람 집어 넣기\
                 e_idx++;
             }
-            //System.out.println("answer: "+Arrays.toString(answer));
         }
         return answer;
     }
