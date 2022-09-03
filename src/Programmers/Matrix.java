@@ -1,5 +1,7 @@
 package Programmers;
 
+import java.util.Arrays;
+
 public class Matrix {
     int[][] answer, lt;
     int ROW, COL;
@@ -69,33 +71,26 @@ public class Matrix {
         return answer;
     }
 
-    /**
-     * TODO: 효율성 통과를 위해 O(n) 으로 줄여야 함
-     */
     void rotate(int num, int loop) {
-        // int [] temp = new int[loop];
+        int [] saved = new int[loop];
 
-        int first = answer[0][0], past = 0;
-        int key = 0;
-        int val = loop - num;
-        while (key < loop - 1) {
-            int mx = lt[key][0], my = lt[key++][1]; // save
-            int x = lt[val][0], y = lt[val][1]; // move
-            // answer[mx][my] = answer[x][y]; // 1
-            int temp = answer[x][y];
-            past = answer[mx][my];
-            answer[mx][my] = temp; // 4
+        int idx = 0, key = 0, past = 0, val = loop - num;
 
-            // temp[key++] = answer[x][y];
+        while (key < loop) {
+            int mx = lt[key][0], my = lt[key][1];
+
+            if (val < loop - num)
+                past = saved[idx++];
+            else
+                past = answer[lt[val][0]][lt[val][1]];
+
+            saved[key] = answer[lt[key][0]][lt[key][1]];
+            answer[mx][my] = past;
+
             if (++val >= loop)
                 val = 0;
+            key++;
         }
-        answer[lt[key][0]][lt[key][1]] = first;
-
-        // for (int idx = 0; idx < loop; idx++) {
-        //     int x = lt[idx][0], y = lt[idx][1];
-        //     answer[x][y] = temp[idx];
-        // }
     }
 
     void shiftRow(int num) {
@@ -110,5 +105,14 @@ public class Matrix {
         }
         for (int i = 0; i < ROW; i++)
             answer[i] = temp[i];
+    }
+
+    public static void main(String[] args) {
+        int [][] rc = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        String [] operations = {"Rotate", "ShiftRow"};
+        Matrix m = new Matrix();
+        final int[][] solution = m.solution(rc, operations);
+        for (int [] s : solution)
+            System.out.println(Arrays.toString(s));
     }
 }
